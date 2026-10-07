@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Image Online Free - Imego</title>
+    <meta name="title" content="Convert Image Online Free - Imego">
+    <meta name="description" content="Convert image formats between JPG, PNG, WebP, and GIF instantly. Free client-side image converter with zero server uploads and total privacy.">
+    <meta name="keywords" content="convert image online, webp to jpg, png to webp, image format converter, convert photo format free">
+    <meta name="author" content="Imego">
+    <link rel="canonical" href="https://ansaarboss.github.io/imego1/convert-image/">
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <meta name="theme-color" content="#4f46e5">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ansaarboss.github.io/imego1/convert-image/">
+    <meta property="og:title" content="Convert Image Online Free - Imego">
+    <meta property="og:description" content="Convert image formats between JPG, PNG, WebP, and GIF instantly. Free client-side image converter with zero server uploads and total privacy.">
+    <meta property="og:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ansaarboss.github.io/imego1/convert-image/">
+    <meta property="twitter:title" content="Convert Image Online Free - Imego">
+    <meta property="twitter:description" content="Convert image formats between JPG, PNG, WebP, and GIF instantly. Free client-side image converter with zero server uploads and total privacy.">
+    <meta property="twitter:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Imego Image Converter",
+          "url": "https://ansaarboss.github.io/imego1/convert-image/",
+          "description": "Convert images between PNG, JPG, WebP, and GIF formats locally in your browser.",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ansaarboss.github.io/imego1/" },
+            { "@type": "ListItem", "position": 2, "name": "Convert Image", "item": "https://ansaarboss.github.io/imego1/convert-image/" }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+<body>
+
+  <!-- Top Navigation Bar with Theme Toggle -->
+  <header class="top-bar">
+    <a href="../index.html" class="logo">🖼️ Imego</a>
+    <nav class="nav-main">
+      <a href="../index.html" class="btn nav-btn">Home</a>
+      <button id="toolsToggleBtn" class="btn nav-btn active">Tools ▾</button>
+      <button id="legalToggleBtn" class="btn nav-btn">Legal Pages ▾</button>
+      <button id="themeToggleBtn" class="btn nav-btn">🌓</button>
+    </nav>
+  </header>
+
+  <!-- Tools Sub-bar Dropdown -->
+  <div class="tools-sub-bar" id="toolsSubBar">
+    <div class="tools-grid-sub">
+      <a href="../compress-image/index.html" class="btn">Compress</a>
+      <a href="../resize-image/index.html" class="btn">Resize</a>
+      <a href="../convert-image/index.html" class="btn active">Convert</a>
+      <a href="../crop-image/index.html" class="btn">Crop</a>
+      <a href="../rotate-image/index.html" class="btn">Rotate</a>
+      <a href="../favicon-generator/index.html" class="btn">Favicon</a>
+      <a href="../image-info/index.html" class="btn">Image Info</a>
+      <a href="../upscale-image/index.html" class="btn">Upscale</a>
+    </div>
+  </div>
+
+  <!-- Legal Sub-bar Dropdown -->
+  <div class="legal-sub-bar" id="legalSubBar">
+    <div class="tools-grid-sub">
+      <a href="../about/index.html" class="btn">About</a>
+      <a href="../privacy-policy/index.html" class="btn">Privacy Policy</a>
+      <a href="../terms-of-service/index.html" class="btn">Terms</a>
+      <a href="../disclaimer/index.html" class="btn">Disclaimer</a>
+      <a href="../contact/index.html" class="btn">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <div class="main-wrapper">
+    <main class="workspace">
+      <h1 style="font-size:22px; margin-bottom:16px; color:var(--primary-color);">Convert Image</h1>
+      
+      <!-- Upload Dropzone -->
+      <div class="dropzone" id="dropzone">
+        <p style="font-weight:700;">Click or drag image here to convert</p>
+        <input type="file" id="fileInput" style="display:none;" accept="image/*">
+      </div>
+
+      <!-- Preview Workspace -->
+      <div class="preview-container" id="previewContainer" style="display:none;">
+        <canvas id="convertCanvas"></canvas>
+        
+        <div class="controls-under-image">
+          <!-- Format Selector Buttons -->
+          <div style="display:flex; flex-direction:column; gap:8px; text-align:left;">
+            <label style="font-weight:700; font-size:13px; color:var(--text-color);">Target Format</label>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;" id="formatButtonGroup">
+              <button class="btn format-option active" data-format="image/png" data-ext="png">PNG</button>
+              <button class="btn format-option" data-format="image/jpeg" data-ext="jpg">JPG</button>
+              <button class="btn format-option" data-format="image/webp" data-ext="webp">WEBP</button>
+              <button class="btn format-option" data-format="image/gif" data-ext="gif">GIF</button>
+              <button class="btn format-option" data-format="image/bmp" data-ext="bmp">BMP</button>
+              <button class="btn format-option" data-format="image/x-icon" data-ext="ico">ICO</button>
+            </div>
+          </div>
+
+          <!-- Action Buttons (Download on Left) -->
+          <div class="action-bar-under" style="margin-top:16px;">
+            <button class="btn primary" id="downloadBtn" style="box-shadow: var(--clay-shadow-btn);">Download Converted</button>
+            <button class="btn danger" id="resetBtn" style="box-shadow: var(--clay-shadow-btn);">🔄 Reset</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- How to Use Section -->
+    <section class="how-to-use-box">
+      <h2 style="font-size:18px; margin-bottom:8px;">How to Use the Convert Tool</h2>
+      <div class="how-to-use-steps">
+        <div class="step-card">
+          <div class="step-number">Step 1</div>
+          <p style="font-size:13px; color:var(--text-muted);">Select or drag your image file into the dropzone.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 2</div>
+          <p style="font-size:13px; color:var(--text-muted);">Choose your desired format target (PNG, JPG, WEBP, GIF, BMP, or ICO).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 3</div>
+          <p style="font-size:13px; color:var(--text-muted);">Click the left-aligned Download button to save your converted image.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- About Convert Image Section -->
+<div class="tool-card" style="grid-column: 1 / -1; margin-top: 40px; padding: 32px;">
+  <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">About Imego Image Converter</h2>
+  <div style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+    <p style="margin-bottom: 16px;">
+      The Imego Image Converter provides fast format transformation between JPG, PNG, and WebP files. Different digital platforms and web content management systems demand specific image file extensions. Converting files directly inside your browser lets you switch formats instantly without downloading specialized software or exposing personal graphics to online servers.
+    </p>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Choosing the Right Format: JPG vs PNG vs WebP</h3>
+    <p style="margin-bottom: 16px;">
+      Selecting the ideal image extension depends on the visual content of your file:
+    </p>
+    <ul style="margin-left: 20px; margin-bottom: 16px;">
+      <li><strong>JPG / JPEG:</strong> Best for real-world photography, nature shots, and complex gradients. JPG does not support transparent backgrounds, filling empty pixels with white.</li>
+      <li><strong>PNG:</strong> Essential for graphics requiring transparent backgrounds, corporate brand logos, app icons, and UI screenshots containing readable vector typography.</li>
+      <li><strong>WebP:</strong> The modern web standard backed by Google. WebP combines PNG's full transparency support with JPG's compact file sizing, reducing loading times significantly across modern desktop and mobile browsers.</li>
+    </ul>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">When to Convert Your Files</h3>
+    <p>
+      Convert heavy PNG photos to JPG or WebP before uploading them to website CMS platforms to boost search engine SEO scores. Convert JPG logos back into PNG format when you need clean transparency layers for overlaying artwork over colored page sections.
+    </p>
+  </div>
+</div>
+
+  <!-- Exclusive FAQ Accordion -->
+  <section class="faq-section">
+    <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question"><span>Can I convert images to GIF or ICO formats?</span><span>+</span></button>
+        <div class="faq-answer">Yes! You can convert any uploaded image file directly into PNG, JPG, WEBP, GIF, BMP, or ICO formats right inside your browser.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Why convert images to WebP?</span><span>+</span></button>
+        <div class="faq-answer">WebP provides superior lossy and lossless compression, reducing file size significantly while retaining maximum visual clarity for web pages.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Is there any quality loss during conversion?</span><span>+</span></button>
+        <div class="faq-answer">Converting to PNG retains 100% lossy-free pixel quality. Converting to JPG or WebP uses high-quality optimization defaults.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="font-size:13px; color:var(--text-muted);">Powered by <strong>Softveses</strong> | © 2026 Imego. All rights reserved.</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/tools-engine.js"></script>
+  <script>
+    let selectedFormat = 'image/png';
+    let selectedExt = 'png';
+    const formatButtons = document.querySelectorAll('.format-option');
+
+    formatButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        formatButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedFormat = btn.getAttribute('data-format');
+        selectedExt = btn.getAttribute('data-ext');
+      });
+    });
+
+    ImegoEngine.initDropzone('dropzone', 'fileInput', () => {
+      document.getElementById('previewContainer').style.display = 'block';
+      renderImage();
+    });
+
+    function renderImage() {
+      const img = ImegoEngine.imageElement;
+      if (!img) return;
+      const canvas = document.getElementById('convertCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+    }
+
+    document.getElementById('resetBtn').onclick = () => {
+      formatButtons.forEach(b => b.classList.remove('active'));
+      formatButtons[0].classList.add('active');
+      selectedFormat = 'image/png';
+      selectedExt = 'png';
+      renderImage();
+    };
+
+    document.getElementById('downloadBtn').onclick = () => {
+      const canvas = document.getElementById('convertCanvas');
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL(selectedFormat, 0.92);
+      a.download = `converted-image.${selectedExt}`;
+      a.click();
+    };
+  </script>
+</body>
+</html>

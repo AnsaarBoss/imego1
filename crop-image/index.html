@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Image Online Free - Imego</title>
+    <meta name="title" content="Crop Image Online Free - Imego">
+    <meta name="description" content="Crop images online easily with predefined aspect ratios or custom selection boxes. Trim unwanted edges from photos privately in your browser.">
+    <meta name="keywords" content="crop image online, photo cropper free, trim picture edges, image aspect ratio cropper, crop photo browser">
+    <meta name="author" content="Imego">
+    <link rel="canonical" href="https://ansaarboss.github.io/imego1/crop-image/">
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <meta name="theme-color" content="#4f46e5">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ansaarboss.github.io/imego1/crop-image/">
+    <meta property="og:title" content="Crop Image Online Free - Imego">
+    <meta property="og:description" content="Crop images online easily with predefined aspect ratios or custom selection boxes. Trim unwanted edges from photos privately in your browser.">
+    <meta property="og:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ansaarboss.github.io/imego1/crop-image/">
+    <meta property="twitter:title" content="Crop Image Online Free - Imego">
+    <meta property="twitter:description" content="Crop images online easily with predefined aspect ratios or custom selection boxes. Trim unwanted edges from photos privately in your browser.">
+    <meta property="twitter:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Imego Image Cropper",
+          "url": "https://ansaarboss.github.io/imego1/crop-image/",
+          "description": "Crop images with aspect ratio presets or custom dimensions locally in your browser.",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ansaarboss.github.io/imego1/" },
+            { "@type": "ListItem", "position": 2, "name": "Crop Image", "item": "https://ansaarboss.github.io/imego1/crop-image/" }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+<body>
+
+  <header class="top-bar">
+    <a href="../index.html" class="logo">🖼️ Imego</a>
+    <nav class="nav-main">
+      <a href="../index.html" class="btn nav-btn">Home</a>
+      <button id="toolsToggleBtn" class="btn nav-btn active">Tools ▾</button>
+      <button id="legalToggleBtn" class="btn nav-btn">Legal Pages ▾</button>
+      <button id="themeToggleBtn" class="btn nav-btn">🌓</button>
+    </nav>
+  </header>
+
+  <div class="tools-sub-bar" id="toolsSubBar">
+    <div class="tools-grid-sub">
+      <a href="../compress-image/index.html" class="btn">Compress</a>
+      <a href="../resize-image/index.html" class="btn">Resize</a>
+      <a href="../convert-image/index.html" class="btn">Convert</a>
+      <a href="../crop-image/index.html" class="btn active">Crop</a>
+      <a href="../rotate-image/index.html" class="btn">Rotate</a>
+      <a href="../favicon-generator/index.html" class="btn">Favicon</a>
+      <a href="../image-info/index.html" class="btn">Image Info</a>
+      <a href="../upscale-image/index.html" class="btn">Upscale</a>
+    </div>
+  </div>
+
+  <div class="legal-sub-bar" id="legalSubBar">
+    <div class="tools-grid-sub">
+      <a href="../about/index.html" class="btn">About</a>
+      <a href="../privacy-policy/index.html" class="btn">Privacy Policy</a>
+      <a href="../terms-of-service/index.html" class="btn">Terms</a>
+      <a href="../disclaimer/index.html" class="btn">Disclaimer</a>
+      <a href="../contact/index.html" class="btn">Contact</a>
+    </div>
+  </div>
+
+  <div class="main-wrapper">
+    <main class="workspace">
+      <h1 style="font-size:22px; margin-bottom:16px;">Crop Image Bounds</h1>
+      
+      <div class="dropzone" id="dropzone">
+        <p style="font-weight:700;">Click or drag image file here to crop</p>
+        <input type="file" id="fileInput" style="display:none;" accept="image/*">
+      </div>
+
+      <div class="preview-container" id="previewContainer" style="display:none;">
+        <canvas id="cropCanvas"></canvas>
+        
+        <div class="controls-under-image">
+          <label style="font-weight:700; font-size:13px;">Crop Aspect Ratio Preset:</label>
+          <div class="option-btn-group" id="cropRatioButtons">
+            <button class="btn active" data-ratio="1:1">1:1 Square</button>
+            <button class="btn" data-ratio="16:9">16:9 Wide</button>
+            <button class="btn" data-ratio="4:3">4:3 Standard</button>
+          </div>
+
+          <!-- Left-aligned Action Controls -->
+          <div class="action-bar-under">
+            <button class="primary" id="downloadBtn">Download Cropped</button>
+            <button class="danger" id="resetBtn">🔄 Reset Original</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- HOW TO USE TOOL SECTION -->
+    <section class="how-to-use-box">
+      <h2 style="font-size:18px; margin-bottom:8px;">How to Use the Crop Tool</h2>
+      <div class="how-to-use-steps">
+        <div class="step-card">
+          <div class="step-number">Step 1</div>
+          <p style="font-size:13px; color:var(--text-muted);">Upload your image by dropping it inside the box above.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 2</div>
+          <p style="font-size:13px; color:var(--text-muted);">Select a preset crop button to instantly apply live ratio changes.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 3</div>
+          <p style="font-size:13px; color:var(--text-muted);">Click Download on the left side to save your cropped image.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- About Crop Image Section -->
+<div class="tool-card" style="grid-column: 1 / -1; margin-top: 40px; padding: 32px;">
+  <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">About Imego Image Cropper</h2>
+  <div style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+    <p style="margin-bottom: 16px;">
+      The Imego Image Cropper allows you to trim unwanted outer edges, eliminate background distractions, and adjust frame composition. Cropping isolates the main focal subject of your photo, transforming wide snap shots into professionally framed profile pictures, product displays, or hero banners.
+    </p>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Popular Aspect Ratios & Framing Rules</h3>
+    <p style="margin-bottom: 16px;">
+      Using standardized cropping ratios helps fit your pictures across popular digital channels:
+    </p>
+    <ul style="margin-left: 20px; margin-bottom: 16px;">
+      <li><strong>1:1 Square:</strong> Standard for social media profile avatars, Instagram posts, and e-commerce product thumbnails.</li>
+      <li><strong>16:9 Widescreen:</strong> Ideal for YouTube video thumbnails, desktop wallpapers, and presentation slides.</li>
+      <li><strong>4:3 Traditional:</strong> Perfect for digital photography prints and blog editorial layouts.</li>
+      <li><strong>9:16 Vertical Story:</strong> Designed specifically for mobile smartphone screens, TikTok, and Instagram Stories.</li>
+    </ul>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Composition & Quality Best Practices</h3>
+    <p>
+      Apply the Rule of Thirds while cropping: place key focal points—such as a person's eyes or a product outline—along the grid lines or intersections. Always start with a high-resolution source image so that cropping away outer borders leaves plenty of remaining pixels for crisp viewing on high-DPI displays.
+    </p>
+  </div>
+</div>
+
+  <!-- 3 TOOL FAQS -->
+  <section class="faq-section">
+    <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question"><span>How do crop ratio buttons work?</span><span>+</span></button>
+        <div class="faq-answer">Selecting 1:1, 16:9, or 4:3 dynamically calculates centered pixel crop dimensions in real time.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Does cropping lower image quality?</span><span>+</span></button>
+        <div class="faq-answer">No, pixel clarity inside the cropped frame remains at full native resolution.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>How do I revert to my uncropped image?</span><span>+</span></button>
+        <div class="faq-answer">Click 'Reset Original' under the preview window to restore your original file immediately.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div style="font-size:13px; color:var(--text-muted);">Powered by <strong>Softveses</strong> | © 2026 Imego. All rights reserved.</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/tools-engine.js"></script>
+  <script>
+    let activeRatio = '1:1';
+
+    ImegoEngine.initDropzone('dropzone', 'fileInput', () => {
+      document.getElementById('previewContainer').style.display = 'block';
+      applyLiveCrop();
+    });
+
+    document.querySelectorAll('#cropRatioButtons .btn').forEach(btn => {
+      btn.onclick = () => {
+        document.querySelectorAll('#cropRatioButtons .btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeRatio = btn.getAttribute('data-ratio');
+        applyLiveCrop();
+      };
+    });
+
+    document.getElementById('resetBtn').onclick = () => {
+      const img = ImegoEngine.imageElement;
+      if (!img) return;
+      const canvas = document.getElementById('cropCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+    };
+
+    function applyLiveCrop() {
+      const img = ImegoEngine.imageElement;
+      if (!img) return;
+      const canvas = document.getElementById('cropCanvas');
+      const ctx = canvas.getContext('2d');
+
+      let targetW = img.width;
+      let targetH = img.height;
+
+      if (activeRatio === '1:1') {
+        targetW = Math.min(img.width, img.height);
+        targetH = targetW;
+      } else if (activeRatio === '16:9') {
+        targetW = img.width;
+        targetH = Math.round(img.width * (9 / 16));
+      } else if (activeRatio === '4:3') {
+        targetW = img.width;
+        targetH = Math.round(img.width * (3 / 4));
+      }
+
+      canvas.width = targetW;
+      canvas.height = targetH;
+      ctx.drawImage(img, (img.width - targetW) / 2, (img.height - targetH) / 2, targetW, targetH, 0, 0, targetW, targetH);
+    }
+
+    document.getElementById('downloadBtn').onclick = () => {
+      const canvas = document.getElementById('cropCanvas');
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/png');
+      a.download = 'cropped-image.png';
+      a.click();
+    };
+  </script>
+</body>
+</html>

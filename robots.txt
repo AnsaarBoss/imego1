@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ansaarboss.github.io/imego1/sitemap.xml

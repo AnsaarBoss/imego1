@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress Image Online Free - Imego</title>
+    <meta name="title" content="Compress Image Online Free - Imego">
+    <meta name="description" content="Reduce image file size online in seconds without quality loss. Supports JPG, PNG, and WebP compression 100% privately inside your browser.">
+    <meta name="keywords" content="compress image online, reduce image size, compress jpg, compress png, image compressor free, reduce photo size kb">
+    <meta name="author" content="Imego">
+    <link rel="canonical" href="https://ansaarboss.github.io/imego1/compress-image/">
+    
+    <!-- CSS & Manifest Links -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <meta name="theme-color" content="#4f46e5">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ansaarboss.github.io/imego1/compress-image/">
+    <meta property="og:title" content="Compress Image Online Free - Imego">
+    <meta property="og:description" content="Reduce image file size online in seconds without quality loss. Supports JPG, PNG, and WebP compression 100% privately inside your browser.">
+    <meta property="og:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ansaarboss.github.io/imego1/compress-image/">
+    <meta property="twitter:title" content="Compress Image Online Free - Imego">
+    <meta property="twitter:description" content="Reduce image file size online in seconds without quality loss. Supports JPG, PNG, and WebP compression 100% privately inside your browser.">
+    <meta property="twitter:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Imego Image Compressor",
+          "url": "https://ansaarboss.github.io/imego1/compress-image/",
+          "description": "Reduce JPG, PNG, and WebP image file sizes locally in your browser.",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ansaarboss.github.io/imego1/" },
+            { "@type": "ListItem", "position": 2, "name": "Compress Image", "item": "https://ansaarboss.github.io/imego1/compress-image/" }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+<body>
+
+  <!-- Top Navigation Bar with Theme Toggle -->
+  <header class="top-bar">
+    <a href="../index.html" class="logo">🖼️ Imego</a>
+    <nav class="nav-main">
+      <a href="../index.html" class="btn nav-btn">Home</a>
+      <button id="toolsToggleBtn" class="btn nav-btn active">Tools ▾</button>
+      <button id="legalToggleBtn" class="btn nav-btn">Legal Pages ▾</button>
+      <button id="themeToggleBtn" class="btn nav-btn">🌓</button>
+    </nav>
+  </header>
+
+  <!-- Tools Sub-bar Dropdown -->
+  <div class="tools-sub-bar" id="toolsSubBar">
+    <div class="tools-grid-sub">
+      <a href="../compress-image/index.html" class="btn active">Compress</a>
+      <a href="../resize-image/index.html" class="btn">Resize</a>
+      <a href="../convert-image/index.html" class="btn">Convert</a>
+      <a href="../crop-image/index.html" class="btn">Crop</a>
+      <a href="../rotate-image/index.html" class="btn">Rotate</a>
+      <a href="../favicon-generator/index.html" class="btn">Favicon</a>
+      <a href="../image-info/index.html" class="btn">Image Info</a>
+      <a href="../upscale-image/index.html" class="btn">Upscale</a>
+    </div>
+  </div>
+
+  <!-- Legal Sub-bar Dropdown -->
+  <div class="legal-sub-bar" id="legalSubBar">
+    <div class="tools-grid-sub">
+      <a href="../about/index.html" class="btn">About</a>
+      <a href="../privacy-policy/index.html" class="btn">Privacy Policy</a>
+      <a href="../terms-of-service/index.html" class="btn">Terms</a>
+      <a href="../disclaimer/index.html" class="btn">Disclaimer</a>
+      <a href="../contact/index.html" class="btn">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <div class="main-wrapper">
+    <main class="workspace">
+      <h1 style="font-size:22px; margin-bottom:16px; color:var(--primary-color);">Compress Image</h1>
+      
+      <!-- Upload Dropzone -->
+      <div class="dropzone" id="dropzone">
+        <p style="font-weight:700;">Click or drag image here to compress</p>
+        <input type="file" id="fileInput" style="display:none;" accept="image/*">
+      </div>
+
+      <!-- Preview Workspace -->
+      <div class="preview-container" id="previewContainer" style="display:none;">
+        <canvas id="compressCanvas"></canvas>
+        
+        <div class="controls-under-image">
+          <div style="display:flex; flex-direction:column; gap:8px; text-align:left;">
+            <label style="font-weight:700; font-size:13px;">Compression Quality: <span id="qualityVal">80</span>%</label>
+            <input type="range" id="qualityRange" min="10" max="100" value="80" style="width:100%; accent-color:var(--primary-color); cursor:pointer;">
+          </div>
+
+          <!-- Action Buttons (Download on Left) -->
+          <div class="action-bar-under">
+            <button class="btn primary" id="downloadBtn" style="box-shadow: var(--clay-shadow-btn);">Download Compressed</button>
+            <button class="btn danger" id="resetBtn" style="box-shadow: var(--clay-shadow-btn);">🔄 Reset</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- How to Use Section -->
+    <section class="how-to-use-box">
+      <h2 style="font-size:18px; margin-bottom:8px;">How to Use the Compress Tool</h2>
+      <div class="how-to-use-steps">
+        <div class="step-card">
+          <div class="step-number">Step 1</div>
+          <p style="font-size:13px; color:var(--text-muted);">Drop your JPG, PNG, or WebP image into the upload box above.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 2</div>
+          <p style="font-size:13px; color:var(--text-muted);">Adjust the compression slider to balance image quality and file size.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 3</div>
+          <p style="font-size:13px; color:var(--text-muted);">Click the left-aligned Download button to save your file immediately.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- About Compress Image Section -->
+<div class="tool-card" style="grid-column: 1 / -1; margin-top: 40px; padding: 32px;">
+  <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">About Imego Image Compressor</h2>
+  <div style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+    <p style="margin-bottom: 16px;">
+      The Imego Image Compressor is a lightweight utility designed to shrink raw photo file sizes without sacrificing visible visual clarity. Heavy images stall web page load speeds, consume mobile data limits, and trigger strict upload size limits on job application portals, email platforms, and real estate listings. By processing every pixel locally inside your web browser, our compression engine reduces file weight rapidly while keeping your private graphics secure from external servers.
+    </p>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Understanding Lossy vs. Lossless Compression</h3>
+    <p style="margin-bottom: 16px;">
+      Choosing the right balance between file size and quality depends heavily on your image format and intended output:
+    </p>
+    <ul style="margin-left: 20px; margin-bottom: 16px;">
+      <li><strong>JPG (Lossy):</strong> Discards redundant color details hidden from the human eye. Dropping quality to 75%–80% typically shrinks file size by up to 70% with zero noticeable loss in quality. Ideal for complex photography and blog banners.</li>
+      <li><strong>PNG (Lossless):</strong> Preserves original pixel values and sharp edges, making it essential for text screenshots, logos, and illustrations with transparent backgrounds.</li>
+      <li><strong>WebP (Modern Standard):</strong> Delivers 25%–34% better compression ratios than JPEG at equivalent quality scores, supporting both transparency and crisp detail.</li>
+    </ul>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Practical Optimization Tips</h3>
+    <p>
+      For general website publishing, set the compression quality slider between 75% and 85%. This sweet spot preserves razor-sharp details while slashing storage overhead. If you need to send photos via email attachments, sliding down to 60% will yield maximum space savings while keeping text and subjects clear.
+    </p>
+  </div>
+</div>
+
+  <!-- Exclusive FAQ Accordion -->
+  <section class="faq-section">
+    <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question"><span>Does compression reduce image dimensions?</span><span>+</span></button>
+        <div class="faq-answer">No, compression reduces the storage file size while keeping pixel dimensions exactly the same.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Are my uploaded images kept private?</span><span>+</span></button>
+        <div class="faq-answer">Yes! All compression takes place strictly inside your local browser via WebAssembly/Canvas.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>What quality level works best for web use?</span><span>+</span></button>
+        <div class="faq-answer">Setting the quality slider between 75% and 85% delivers massive size reduction with no visible quality loss.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="font-size:13px; color:var(--text-muted);">Powered by <strong>Softveses</strong> | © 2026 Imego. All rights reserved.</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/tools-engine.js"></script>
+  <script>
+    const qualityRange = document.getElementById('qualityRange');
+    const qualityVal = document.getElementById('qualityVal');
+
+    ImegoEngine.initDropzone('dropzone', 'fileInput', () => {
+      document.getElementById('previewContainer').style.display = 'block';
+      renderImage();
+    });
+
+    qualityRange.addEventListener('input', (e) => {
+      qualityVal.textContent = e.target.value;
+      renderImage();
+    });
+
+    function renderImage() {
+      const img = ImegoEngine.imageElement;
+      if (!img) return;
+      const canvas = document.getElementById('compressCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+    }
+
+    document.getElementById('resetBtn').onclick = () => {
+      qualityRange.value = 80;
+      qualityVal.textContent = '80';
+      renderImage();
+    };
+
+    document.getElementById('downloadBtn').onclick = () => {
+      const canvas = document.getElementById('compressCanvas');
+      const quality = parseFloat(qualityRange.value) / 100;
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/jpeg', quality);
+      a.download = 'compressed-image.jpg';
+      a.click();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imego - Free Online Client-Side Image Tools</title>
+    <meta name="title" content="Imego - Free Online Client-Side Image Tools">
+    <meta name="description" content="Edit, compress, resize, crop, convert, upscale images, generate favicons, and inspect EXIF metadata online for free with 100% private browser processing.">
+    <meta name="keywords" content="image tools free, online photo editor, browser image compressor, convert image online, upscale image, client side image processing">
+    <meta name="author" content="Imego">
+    <link rel="canonical" href="https://ansaarboss.github.io/imego1/">
+    
+    <!-- CSS & Manifest Links -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <meta name="theme-color" content="#4f46e5">
+  
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ansaarboss.github.io/imego1/">
+    <meta property="og:title" content="Imego - Free Online Client-Side Image Tools">
+    <meta property="og:description" content="Edit, compress, resize, crop, convert, upscale images, generate favicons, and inspect EXIF metadata online for free with 100% private browser processing.">
+    <meta property="og:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ansaarboss.github.io/imego1/">
+    <meta property="twitter:title" content="Imego - Free Online Client-Side Image Tools">
+    <meta property="twitter:description" content="Edit, compress, resize, crop, convert, upscale images, generate favicons, and inspect EXIF metadata online for free with 100% private browser processing.">
+    <meta property="twitter:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://ansaarboss.github.io/imego1/#website",
+          "url": "https://ansaarboss.github.io/imego1/",
+          "name": "Imego",
+          "description": "Free client-side image editing tools"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://ansaarboss.github.io/imego1/#organization",
+          "name": "Imego",
+          "url": "https://ansaarboss.github.io/imego1/"
+        }
+      ]
+    }
+    </script>
+  </head>
+<body>
+
+  <!-- Top Navigation Bar with Theme Toggle -->
+  <header class="top-bar">
+    <a href="index.html" class="logo">🖼️ Imego</a>
+    <nav class="nav-main">
+      <a href="index.html" class="btn nav-btn active">Home</a>
+      <button id="toolsToggleBtn" class="btn nav-btn">Tools ▾</button>
+      <button id="legalToggleBtn" class="btn nav-btn">Legal Pages ▾</button>
+      <button id="themeToggleBtn" class="btn nav-btn">🌓</button>
+    </nav>
+  </header>
+
+  <!-- Tools Sub-bar Dropdown -->
+  <div class="tools-sub-bar" id="toolsSubBar">
+    <div class="tools-grid-sub">
+      <a href="compress-image/index.html" class="btn">Compress</a>
+      <a href="resize-image/index.html" class="btn">Resize</a>
+      <a href="convert-image/index.html" class="btn">Convert</a>
+      <a href="crop-image/index.html" class="btn">Crop</a>
+      <a href="rotate-image/index.html" class="btn">Rotate</a>
+      <a href="favicon-generator/index.html" class="btn">Favicon</a>
+      <a href="image-info/index.html" class="btn">Image Info</a>
+      <a href="upscale-image/index.html" class="btn">Upscale</a>
+    </div>
+  </div>
+
+  <!-- Legal Sub-bar Dropdown -->
+  <div class="legal-sub-bar" id="legalSubBar">
+    <div class="tools-grid-sub">
+      <a href="about/index.html" class="btn">About</a>
+      <a href="privacy-policy/index.html" class="btn">Privacy Policy</a>
+      <a href="terms-of-service/index.html" class="btn">Terms</a>
+      <a href="disclaimer/index.html" class="btn">Disclaimer</a>
+      <a href="contact/index.html" class="btn">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <div class="main-wrapper">
+    
+    <!-- ENHANCED HERO SECTION -->
+    <section class="hero-section" style="padding: 32px 20px; text-align: center; max-width: 800px; margin: 0 auto;">
+      <div style="display:inline-block; padding: 6px 14px; background: var(--card-bg); border: var(--clay-border); border-radius: 20px; box-shadow: var(--clay-shadow-btn-active); font-size: 12px; font-weight: 700; color: var(--primary-color); margin-bottom: 12px;">
+        ⚡ 100% Free, Secure & Browser-Based
+      </div>
+      
+      <h1 style="font-size: 32px; font-weight: 800; line-height: 1.25; margin-bottom: 12px; color: var(--text-color);">
+        All-in-One Online <span style="color: var(--primary-color);">Image Toolkit</span>
+      </h1>
+      
+      <p style="font-size: 15px; color: var(--text-muted); line-height: 1.6; max-width: 650px; margin: 0 auto 20px auto;">
+        Compress, resize, convert, crop, rotate, generate multi-size favicons, and view EXIF metadata in seconds. No software installation, no sign-ups, and zero file uploads to external servers.
+      </p>
+
+      <!-- Quick Feature Badges -->
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+        <span style="font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 8px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active);">🔒 100% Private (Local Processing)</span>
+        <span style="font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 8px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active);">🚀 Ultra Fast Engine</span>
+        <span style="font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 8px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active);">📦 ZIP Bundling Included</span>
+      </div>
+
+      <!-- Hero Call-To-Action Buttons -->
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <a href="compress-image/index.html" class="btn primary" style="box-shadow: var(--clay-shadow-btn); font-weight: 700;">Start Compressing</a>
+        <a href="favicon-generator/index.html" class="btn" style="box-shadow: var(--clay-shadow-btn); font-weight: 700;">Generate Favicons</a>
+      </div>
+    </section>
+
+    <!-- Main Tools Grid Section -->
+<main class="workspace" style="margin-top: 30px;">
+  <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 20px; color: var(--primary-color); text-align: center; letter-spacing: -0.3px;">
+    Explore All Image Tools
+  </h2>
+  
+  <div class="tools-grid-main" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px;">
+    
+    <!-- Compress Tool Card -->
+    <a href="compress-image/index.html" class="tool-card" style="padding: 20px 16px; border-radius: 16px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active); text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <div class="tool-icon" style="font-size: 38px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));">🖼️</div>
+      <h3 style="font-size: 16px; font-weight: 800; margin: 0; color: var(--text-color); letter-spacing: -0.2px;">Compress Image</h3>
+      <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 0; line-height: 1.45;">Reduce file size without losing visual quality.</p>
+    </a>
+
+    <!-- Resize Tool Card -->
+    <a href="resize-image/index.html" class="tool-card" style="padding: 20px 16px; border-radius: 16px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active); text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <div class="tool-icon" style="font-size: 38px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));">📏</div>
+      <h3 style="font-size: 16px; font-weight: 800; margin: 0; color: var(--text-color); letter-spacing: -0.2px;">Resize Image</h3>
+      <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 0; line-height: 1.45;">Change dimensions by pixels or exact percentage.</p>
+    </a>
+
+    <!-- Convert Tool Card -->
+    <a href="convert-image/index.html" class="tool-card" style="padding: 20px 16px; border-radius: 16px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active); text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <div class="tool-icon" style="font-size: 38px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));">⚡</div>
+      <h3 style="font-size: 16px; font-weight: 800; margin: 0; color: var(--text-color); letter-spacing: -0.2px;">Convert Format</h3>
+      <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 0; line-height: 1.45;">Convert images between JPG, PNG, WebP, and GIF.</p>
+    </a>
+
+    <!-- Crop Tool Card -->
+    <a href="crop-image/index.html" class="tool-card" style="padding: 20px 16px; border-radius: 16px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active); text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <div class="tool-icon" style="font-size: 38px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));">✂️</div>
+      <h3 style="font-size: 16px; font-weight: 800; margin: 0; color: var(--text-color); letter-spacing: -0.2px;">Crop Image</h3>
+      <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 0; line-height: 1.45;">Trim edges or crop to custom aspect ratios.</p>
+    </a>
+
+    <!-- Rotate Tool Card -->
+    <a href="rotate-image/index.html" class="tool-card" style="padding: 20px 16px; border-radius: 16px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active); text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <div class="tool-icon" style="font-size: 38px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));">🔄</div>
+      <h3 style="font-size: 16px; font-weight: 800; margin: 0; color: var(--text-color); letter-spacing: -0.2px;">Rotate & Flip</h3>
+      <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 0; line-height: 1.45;">Rotate freely with slider or flip horizontally/vertically.</p>
+    </a>
+
+    <!-- Favicon Generator Card -->
+    <a href="favicon-generator/index.html" class="tool-card" style="padding: 20px 16px; border-radius: 16px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active); text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <div class="tool-icon" style="font-size: 38px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));">⭐</div>
+      <h3 style="font-size: 16px; font-weight: 800; margin: 0; color: var(--text-color); letter-spacing: -0.2px;">Favicon Generator</h3>
+      <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 0; line-height: 1.45;">Generate 7 standard icon sizes and download all as a ZIP.</p>
+    </a>
+
+    <!-- Image Info & EXIF Card -->
+    <a href="image-info/index.html" class="tool-card" style="padding: 20px 16px; border-radius: 16px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active); text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <div class="tool-icon" style="font-size: 38px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));">🔍</div>
+      <h3 style="font-size: 16px; font-weight: 800; margin: 0; color: var(--text-color); letter-spacing: -0.2px;">Image Info & EXIF</h3>
+      <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 0; line-height: 1.45;">Extract resolution, aspect ratio, camera metadata, and JSON report.</p>
+    </a> 
+
+    <!-- Upscale Image Card -->
+<a href="upscale-image/index.html" class="tool-card" style="padding: 20px 16px; border-radius: 16px; background: var(--card-bg); border: var(--clay-border); box-shadow: var(--clay-shadow-btn-active); text-decoration: none; color: var(--text-color); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; transition: transform 0.2s ease, box-shadow 0.2s ease;">
+  <div class="tool-icon" style="font-size: 38px; line-height: 1; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));">🔎</div>
+  <h3 style="font-size: 16px; font-weight: 800; margin: 0; color: var(--text-color); letter-spacing: -0.2px;">Upscale Image</h3>
+  <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 0; line-height: 1.45;">Enlarge resolution by 2x or 4x with enhanced edge sharpening.</p>
+</a>
+
+  </div>
+</main>
+    <!-- About Imego Section -->
+<div class="tool-card" style="grid-column: 1 / -1; margin: 30px 0; padding: 40px 30px; text-align: center;">
+  <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">About Imego</h2>
+  <div style="max-width: 850px; margin: 0 auto;">
+    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 16px;">
+      Imego is a complete suite of free, web-based image editing utilities designed to make fast photo optimization accessible to everyone—no sign-up, subscriptions, or downloads required. Whether you need to compress large files, resize dimensions, crop details, convert file formats, upscale image resolution, generate favicons, or inspect EXIF camera metadata, Imego delivers instant results right inside your browser.
+    </p>
+    <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary); margin: 0;">
+      Because every operation relies strictly on local client-side processing, your photos and graphics are never uploaded to any external server, guaranteeing total privacy and file security. Imego is built for bloggers, web developers, graphic designers, students, and small business owners who require dependable, privacy-focused image editing tools for daily workflows without paying high software fees or exposing sensitive client images online.
+    </p>
+  </div>
+</div>
+
+    <!-- UNIFIED HOW TO USE SECTION -->
+    <section class="how-to-use-box" style="margin-top: 30px;">
+      <h2 style="font-size: 18px; margin-bottom: 8px;">How to Use Imego Tools</h2>
+      <div class="how-to-use-steps">
+        <div class="step-card">
+          <div class="step-number">Step 1</div>
+          <p style="font-size: 13px; color: var(--text-muted);">Select any image tool from the tools grid or top navigation menu.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 2</div>
+          <p style="font-size: 13px; color: var(--text-muted);">Drop your image file to apply instant compression, resizing, rotation, or extraction.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 3</div>
+          <p style="font-size: 13px; color: var(--text-muted);">Preview your changes instantly and download single files or packaged ZIP bundles.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Exclusive FAQ Accordion -->
+  <section class="faq-section">
+    <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question"><span>Is Imego completely free to use?</span><span>+</span></button>
+        <div class="faq-answer">Yes, all image utilities on Imego are 100% free with no usage caps, hidden fees, or account registration needed.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Are my uploaded photos safe and private?</span><span>+</span></button>
+        <div class="faq-answer">Absolutely. All file conversions and processing occur directly inside your web browser using JavaScript HTML5 APIs. Your images are never sent to external servers.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Does Imego work on mobile devices?</span><span>+</span></button>
+        <div class="faq-answer">Yes, Imego is built with a responsive Claymorphic interface that operates smoothly across mobile phones, tablets, and desktop computers.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="font-size:13px; color:var(--text-muted);">Powered by <strong>Softveses</strong> | © 2026 Imego. All rights reserved.</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

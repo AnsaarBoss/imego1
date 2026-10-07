@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Generator Online Free - Imego</title>
+    <meta name="title" content="Favicon Generator Online Free - Imego">
+    <meta name="description" content="Generate standard website favicon sizes (16x16, 32x32, apple-touch-icon) instantly. Download a complete ZIP archive generated locally in your browser.">
+    <meta name="keywords" content="favicon generator online, create favicon ico, png to favicon zip, apple touch icon generator, website icon maker">
+    <meta name="author" content="Imego">
+    <link rel="canonical" href="https://ansaarboss.github.io/imego1/favicon-generator/">
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <meta name="theme-color" content="#4f46e5">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ansaarboss.github.io/imego1/favicon-generator/">
+    <meta property="og:title" content="Favicon Generator Online Free - Imego">
+    <meta property="og:description" content="Generate standard website favicon sizes (16x16, 32x32, apple-touch-icon) instantly. Download a complete ZIP archive generated locally in your browser.">
+    <meta property="og:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ansaarboss.github.io/imego1/favicon-generator/">
+    <meta property="twitter:title" content="Favicon Generator Online Free - Imego">
+    <meta property="twitter:description" content="Generate standard website favicon sizes (16x16, 32x32, apple-touch-icon) instantly. Download a complete ZIP archive generated locally in your browser.">
+    <meta property="twitter:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Imego Favicon Generator",
+          "url": "https://ansaarboss.github.io/imego1/favicon-generator/",
+          "description": "Generate multi-size website favicon packages locally in your browser.",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ansaarboss.github.io/imego1/" },
+            { "@type": "ListItem", "position": 2, "name": "Favicon Generator", "item": "https://ansaarboss.github.io/imego1/favicon-generator/" }
+          ]
+        }
+      ]
+    }
+    </script>
+  <!-- JSZip for client-side ZIP bundle creation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation Bar with Theme Toggle -->
+  <header class="top-bar">
+    <a href="../index.html" class="logo">🖼️ Imego</a>
+    <nav class="nav-main">
+      <a href="../index.html" class="btn nav-btn">Home</a>
+      <button id="toolsToggleBtn" class="btn nav-btn active">Tools ▾</button>
+      <button id="legalToggleBtn" class="btn nav-btn">Legal Pages ▾</button>
+      <button id="themeToggleBtn" class="btn nav-btn">🌓</button>
+    </nav>
+  </header>
+
+  <!-- Tools Sub-bar Dropdown -->
+  <div class="tools-sub-bar" id="toolsSubBar">
+    <div class="tools-grid-sub">
+      <a href="../compress-image/index.html" class="btn">Compress</a>
+      <a href="../resize-image/index.html" class="btn">Resize</a>
+      <a href="../convert-image/index.html" class="btn">Convert</a>
+      <a href="../crop-image/index.html" class="btn">Crop</a>
+      <a href="../rotate-image/index.html" class="btn">Rotate</a>
+      <a href="../favicon-generator/index.html" class="btn active">Favicon</a>
+      <a href="../image-info/index.html" class="btn">Image Info</a>
+      <a href="../upscale-image/index.html" class="btn">Upscale</a>
+    </div>
+  </div>
+
+  <!-- Legal Sub-bar Dropdown -->
+  <div class="legal-sub-bar" id="legalSubBar">
+    <div class="tools-grid-sub">
+      <a href="../about/index.html" class="btn">About</a>
+      <a href="../privacy-policy/index.html" class="btn">Privacy Policy</a>
+      <a href="../terms-of-service/index.html" class="btn">Terms</a>
+      <a href="../disclaimer/index.html" class="btn">Disclaimer</a>
+      <a href="../contact/index.html" class="btn">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <div class="main-wrapper">
+    <main class="workspace">
+      <h1 style="font-size:22px; margin-bottom:16px; color:var(--primary-color);">Favicon Generator</h1>
+      
+      <!-- Upload Dropzone -->
+      <div class="dropzone" id="dropzone">
+        <p style="font-weight:700;">Click or drag image here to generate favicons</p>
+        <input type="file" id="fileInput" style="display:none;" accept="image/*">
+      </div>
+
+      <!-- Preview & Favicon Grid Workspace -->
+      <div class="preview-container" id="previewContainer" style="display:none;">
+        
+        <!-- Batch Action Header Bar -->
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px; padding:12px 16px; border-radius:12px; background:var(--card-bg); border:var(--clay-border); box-shadow:var(--clay-shadow-btn-active);">
+          <div>
+            <h3 style="font-size:15px; margin:0;">Generated Favicon Sizes</h3>
+            <span style="font-size:12px; color:var(--text-muted);">Download individual sizes or grab all in one ZIP archive.</span>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <button class="btn primary" id="downloadZipBtn" style="box-shadow: var(--clay-shadow-btn);">📦 Download All (ZIP)</button>
+            <button class="btn danger" id="resetBtn" style="box-shadow: var(--clay-shadow-btn);">🔄 Reset</button>
+          </div>
+        </div>
+
+        <!-- Grid of Individual Favicon Cards -->
+        <div id="faviconGrid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap:16px;">
+          <!-- JS generates cards here dynamically -->
+        </div>
+
+      </div>
+    </main>
+
+    <!-- How to Use Section -->
+    <section class="how-to-use-box">
+      <h2 style="font-size:18px; margin-bottom:8px;">How to Use the Favicon Generator</h2>
+      <div class="how-to-use-steps">
+        <div class="step-card">
+          <div class="step-number">Step 1</div>
+          <p style="font-size:13px; color:var(--text-muted);">Drop your square logo or icon into the upload dropzone.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 2</div>
+          <p style="font-size:13px; color:var(--text-muted);">Preview each rendered size automatically generated for Web, Apple, and Android.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 3</div>
+          <p style="font-size:13px; color:var(--text-muted);">Click any size button to download individually, or click "Download All (ZIP)".</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- About Favicon Generator Section -->
+<div class="tool-card" style="grid-column: 1 / -1; margin-top: 40px; padding: 32px;">
+  <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">About Imego Favicon Generator</h2>
+  <div style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+    <p style="margin-bottom: 16px;">
+      The Imego Favicon Generator transforms your brand logos and graphics into multi-resolution browser icons, mobile app shortcut images, and site webmanifest packages. Favicons appear alongside page titles in browser tabs, bookmark lists, mobile search engine result pages, and smartphone home screen shortcuts, building instant brand recognition for site visitors.
+    </p>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">ICO vs. PNG Favicons</h3>
+    <p style="margin-bottom: 16px;">
+      Modern web development standards support both legacy ICO formats and updated PNG icons:
+    </p>
+    <ul style="margin-left: 20px; margin-bottom: 16px;">
+      <li><strong>Classic .ICO Format:</strong> Contains multiple embedded resolutions (16x16, 32x32, 48x48) in a single file, ensuring backward compatibility with older web browsers and legacy desktop environments.</li>
+      <li><strong>Modern PNG Favicons:</strong> Lightweight, crisp transparent files (32x32 for standard tabs, 180x180 for Apple iOS Touch Icons, and 192x192 / 512x512 for Android Progressive Web Apps).</li>
+    </ul>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Design Best Practices for Small Icons</h3>
+    <p>
+      Because favicons render as small as 16x16 pixels in browser tabs, avoid complex photo scenes or lengthy text slogans. Use a high-contrast logo mark, simplified brand symbol, or bold initial against a transparent PNG background. Always include a webmanifest file to ensure mobile devices display your site crisp and clear when saved to home screens.
+    </p>
+  </div>
+</div>
+
+  <!-- Exclusive FAQ Accordion -->
+  <section class="faq-section">
+    <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question"><span>What sizes are included in the generated ZIP file?</span><span>+</span></button>
+        <div class="faq-answer">The ZIP archive includes standard web sizes (16x16, 32x32, 48x48, 64x64, 128x128), Apple Touch Icon (180x180), and Android Chrome Icon (192x192).</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>What image dimensions work best for generating favicons?</span><span>+</span></button>
+        <div class="faq-answer">A square image (512x512 pixels or higher) with a transparent PNG background works best for crisp results across all dimensions.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Are my uploaded logo files uploaded to a remote server?</span><span>+</span></button>
+        <div class="faq-answer">No, all favicon scaling and ZIP creation happen locally in your browser session for maximum privacy.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="font-size:13px; color:var(--text-muted);">Powered by <strong>Softveses</strong> | © 2026 Imego. All rights reserved.</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/tools-engine.js"></script>
+  <script>
+    // Configured standard favicon size targets
+    const faviconSizes = [
+      { name: 'favicon-16x16.png', size: 16, label: '16 x 16 (Browser)' },
+      { name: 'favicon-32x32.png', size: 32, label: '32 x 32 (Taskbar)' },
+      { name: 'favicon-48x48.png', size: 48, label: '48 x 48 (Desktop)' },
+      { name: 'favicon-64x64.png', size: 64, label: '64 x 64 (High-DPI)' },
+      { name: 'favicon-128x128.png', size: 128, label: '128 x 128 (Chrome Store)' },
+      { name: 'apple-touch-icon.png', size: 180, label: '180 x 180 (Apple iOS)' },
+      { name: 'android-chrome-192x192.png', size: 192, label: '192 x 192 (Android)' }
+    ];
+
+    const generatedCanvases = {};
+
+    ImegoEngine.initDropzone('dropzone', 'fileInput', () => {
+      document.getElementById('previewContainer').style.display = 'block';
+      generateFavicons();
+    });
+
+    function generateFavicons() {
+      const img = ImegoEngine.imageElement;
+      if (!img) return;
+
+      const grid = document.getElementById('faviconGrid');
+      grid.innerHTML = '';
+
+      faviconSizes.forEach((item) => {
+        // Create canvas element for resizing
+        const canvas = document.createElement('canvas');
+        canvas.width = item.size;
+        canvas.height = item.size;
+        const ctx = canvas.getContext('2d');
+        
+        // Use high-quality image smoothing
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(img, 0, 0, item.size, item.size);
+
+        generatedCanvases[item.name] = canvas;
+
+        // Render card preview in grid
+        const card = document.createElement('div');
+        card.style.cssText = 'padding:14px; border-radius:12px; background:var(--card-bg); border:var(--clay-border); box-shadow:var(--clay-shadow-btn-active); display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center;';
+
+        const previewImg = document.createElement('img');
+        previewImg.src = canvas.toDataURL('image/png');
+        previewImg.style.cssText = `width:${Math.min(item.size, 64)}px; height:${Math.min(item.size, 64)}px; object-fit:contain; border-radius:6px; filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1));`;
+
+        const title = document.createElement('div');
+        title.style.cssText = 'font-weight:700; font-size:12px; color:var(--text-color);';
+        title.textContent = item.label;
+
+        const downloadBtn = document.createElement('button');
+        downloadBtn.className = 'btn primary';
+        downloadBtn.style.cssText = 'font-size:11px; padding:6px 10px; width:100%; box-shadow:var(--clay-shadow-btn);';
+        downloadBtn.textContent = 'Download';
+        downloadBtn.onclick = () => downloadSingleFavicon(canvas, item.name);
+
+        card.appendChild(previewImg);
+        card.appendChild(title);
+        card.appendChild(downloadBtn);
+        grid.appendChild(card);
+      });
+    }
+
+    function downloadSingleFavicon(canvas, filename) {
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/png');
+      a.download = filename;
+      a.click();
+    }
+
+    // ZIP Bundle Generator using JSZip
+    document.getElementById('downloadZipBtn').onclick = () => {
+      if (typeof JSZip === 'undefined') {
+        alert('ZIP library loading... Please try again in a moment.');
+        return;
+      }
+
+      const zip = new JSZip();
+      const keys = Object.keys(generatedCanvases);
+
+      if (keys.length === 0) return;
+
+      keys.forEach((filename) => {
+        const canvas = generatedCanvases[filename];
+        const dataUrl = canvas.toDataURL('image/png');
+        const base64Data = dataUrl.replace(/^data:image\/png;base64,/, "");
+        zip.file(filename, base64Data, { base64: true });
+      });
+
+      zip.generateAsync({ type: 'blob' }).then((content) => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(content);
+        a.download = 'favicons-pack.zip';
+        a.click();
+      });
+    };
+
+    document.getElementById('resetBtn').onclick = () => {
+      document.getElementById('faviconGrid').innerHTML = '';
+      document.getElementById('previewContainer').style.display = 'none';
+      document.getElementById('fileInput').value = '';
+    };
+  </script>
+</body>
+</html>

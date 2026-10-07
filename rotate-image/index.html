@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotate Image Online Free - Imego</title>
+    <meta name="title" content="Rotate Image Online Free - Imego">
+    <meta name="description" content="Rotate photos clockwise, counterclockwise, or flip horizontally and vertically online. Simple client-side tool with instant browser preview.">
+    <meta name="keywords" content="rotate image online, flip photo horizontally, rotate picture 90 degrees, image rotator free, flip image mirror">
+    <meta name="author" content="Imego">
+    <link rel="canonical" href="https://ansaarboss.github.io/imego1/rotate-image/">
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <meta name="theme-color" content="#4f46e5">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ansaarboss.github.io/imego1/rotate-image/">
+    <meta property="og:title" content="Rotate Image Online Free - Imego">
+    <meta property="og:description" content="Rotate photos clockwise, counterclockwise, or flip horizontally and vertically online. Simple client-side tool with instant browser preview.">
+    <meta property="og:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ansaarboss.github.io/imego1/rotate-image/">
+    <meta property="twitter:title" content="Rotate Image Online Free - Imego">
+    <meta property="twitter:description" content="Rotate photos clockwise, counterclockwise, or flip horizontally and vertically online. Simple client-side tool with instant browser preview.">
+    <meta property="twitter:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Imego Image Rotator",
+          "url": "https://ansaarboss.github.io/imego1/rotate-image/",
+          "description": "Rotate and flip images horizontally or vertically locally in your browser.",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ansaarboss.github.io/imego1/" },
+            { "@type": "ListItem", "position": 2, "name": "Rotate Image", "item": "https://ansaarboss.github.io/imego1/rotate-image/" }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+<body>
+
+  <!-- Top Navigation Bar with Theme Toggle -->
+  <header class="top-bar">
+    <a href="../index.html" class="logo">🖼️ Imego</a>
+    <nav class="nav-main">
+      <a href="../index.html" class="btn nav-btn">Home</a>
+      <button id="toolsToggleBtn" class="btn nav-btn active">Tools ▾</button>
+      <button id="legalToggleBtn" class="btn nav-btn">Legal Pages ▾</button>
+      <button id="themeToggleBtn" class="btn nav-btn">🌓</button>
+    </nav>
+  </header>
+
+  <!-- Tools Sub-bar Dropdown -->
+  <div class="tools-sub-bar" id="toolsSubBar">
+    <div class="tools-grid-sub">
+      <a href="../compress-image/index.html" class="btn">Compress</a>
+      <a href="../resize-image/index.html" class="btn">Resize</a>
+      <a href="../convert-image/index.html" class="btn">Convert</a>
+      <a href="../crop-image/index.html" class="btn">Crop</a>
+      <a href="../rotate-image/index.html" class="btn active">Rotate</a>
+      <a href="../favicon-generator/index.html" class="btn">Favicon</a>
+      <a href="../image-info/index.html" class="btn">Image Info</a>
+      <a href="../upscale-image/index.html" class="btn">Upscale</a>
+    </div>
+  </div>
+
+  <!-- Legal Sub-bar Dropdown -->
+  <div class="legal-sub-bar" id="legalSubBar">
+    <div class="tools-grid-sub">
+      <a href="../about/index.html" class="btn">About</a>
+      <a href="../privacy-policy/index.html" class="btn">Privacy Policy</a>
+      <a href="../terms-of-service/index.html" class="btn">Terms</a>
+      <a href="../disclaimer/index.html" class="btn">Disclaimer</a>
+      <a href="../contact/index.html" class="btn">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <div class="main-wrapper">
+    <main class="workspace">
+      <h1 style="font-size:22px; margin-bottom:16px; color:var(--primary-color);">Rotate & Flip Image</h1>
+      
+      <!-- Upload Dropzone -->
+      <div class="dropzone" id="dropzone">
+        <p style="font-weight:700;">Click or drag image here to rotate</p>
+        <input type="file" id="fileInput" style="display:none;" accept="image/*">
+      </div>
+
+      <!-- Preview Workspace -->
+      <div class="preview-container" id="previewContainer" style="display:none;">
+        <canvas id="rotateCanvas"></canvas>
+        
+        <div class="controls-under-image">
+          <!-- Custom Rotation Slider & Number Input -->
+          <div style="display:flex; flex-direction:column; gap:8px; text-align:left; max-width:450px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <label style="font-weight:700; font-size:13px; color:var(--text-color);">Custom Angle (°)</label>
+              <input type="number" id="customAngleInput" value="0" min="0" max="360" style="width:70px; height:34px; text-align:center; border-radius:8px; border:var(--clay-border); background:var(--card-bg); color:var(--text-color); box-shadow:var(--clay-shadow-btn-active); outline:none; font-weight:700; font-size:13px;">
+            </div>
+            <input type="range" id="customAngleSlider" min="0" max="360" value="0" style="width:100%; accent-color:var(--primary-color); cursor:pointer;">
+          </div>
+
+          <!-- Quick Rotation & Flip Controls -->
+          <div style="display:flex; flex-direction:column; gap:8px; text-align:left; margin-top:12px;">
+            <label style="font-weight:700; font-size:13px; color:var(--text-color);">Quick Actions</label>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn" id="rotateLeftBtn" style="box-shadow: var(--clay-shadow-btn);">↺ 90° Left</button>
+              <button class="btn" id="rotateRightBtn" style="box-shadow: var(--clay-shadow-btn);">↻ 90° Right</button>
+              <button class="btn" id="rotate180Btn" style="box-shadow: var(--clay-shadow-btn);">⟳ 180°</button>
+              <button class="btn" id="flipHBtn" style="box-shadow: var(--clay-shadow-btn);">⇄ Flip Horizontal</button>
+              <button class="btn" id="flipVBtn" style="box-shadow: var(--clay-shadow-btn);">⇅ Flip Vertical</button>
+            </div>
+          </div>
+
+          <!-- Action Buttons (Download on Left) -->
+          <div class="action-bar-under" style="margin-top:16px;">
+            <button class="btn primary" id="downloadBtn" style="box-shadow: var(--clay-shadow-btn);">Download Rotated</button>
+            <button class="btn danger" id="resetBtn" style="box-shadow: var(--clay-shadow-btn);">🔄 Reset</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- How to Use Section -->
+    <section class="how-to-use-box">
+      <h2 style="font-size:18px; margin-bottom:8px;">How to Use the Rotate Tool</h2>
+      <div class="how-to-use-steps">
+        <div class="step-card">
+          <div class="step-number">Step 1</div>
+          <p style="font-size:13px; color:var(--text-muted);">Drop your image into the upload box above.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 2</div>
+          <p style="font-size:13px; color:var(--text-muted);">Drag the custom slider to rotate freely to any angle, or use quick preset buttons.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 3</div>
+          <p style="font-size:13px; color:var(--text-muted);">Click the left-aligned Download button to save your re-oriented image.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- About Rotate Image Section -->
+<div class="tool-card" style="grid-column: 1 / -1; margin-top: 40px; padding: 32px;">
+  <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">About Imego Image Rotator</h2>
+  <div style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+    <p style="margin-bottom: 16px;">
+      The Imego Image Rotator lets you correct photo orientations and flip images horizontally or vertically. Smartphone cameras frequently tag photos with incorrect orientation metadata, causing pictures to display sideways or upside-down when uploaded to websites, PDF documents, or online stores. Our tool rotates every pixel to correct orientation permanently.
+    </p>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Rotating vs. Mirroring / Flipping</h3>
+    <p style="margin-bottom: 16px;">
+      Understanding the visual difference between rotation and mirror flipping ensures proper adjustments:
+    </p>
+    <ul style="margin-left: 20px; margin-bottom: 16px;">
+      <li><strong>90° / 180° Rotation:</strong> Turns the canvas clockwise or counter-clockwise to correct sideways portraits or landscape camera angles without altering left-to-right spatial order.</li>
+      <li><strong>Horizontal Flip (Mirror):</strong> Reverses the image left-to-right. Useful for fixing front-facing selfie video frames, adjusting subject direction toward text columns, or creating artistic reflection effects.</li>
+      <li><strong>Vertical Flip:</strong> Inverts the canvas upside-down, useful for correcting inverted scanner outputs or technical graphic feeds.</li>
+    </ul>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Practical Usage Tips</h3>
+    <p>
+      When flipping selfies or scanned paperwork containing readable text, verify that words and logo branding remain legible. Rotating photos directly inside your browser rewrites image pixels cleanly without loss of quality or unexpected orientation flips on external device viewports.
+    </p>
+  </div>
+</div>
+
+  <!-- Exclusive FAQ Accordion -->
+  <section class="faq-section">
+    <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question"><span>Can I rotate an image by custom degrees (like 15° or 45°)?</span><span>+</span></button>
+        <div class="faq-answer">Yes! You can use the custom angle slider or type an exact degree from 0° to 360° to straighten or tilt your image.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Does custom rotation cut off the corners of my image?</span><span>+</span></button>
+        <div class="faq-answer">No, the canvas dynamically resizes its bounding box so the entire rotated image fits perfectly without clipping corners.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Are my images stored on any server?</span><span>+</span></button>
+        <div class="faq-answer">No, all rotations happen locally inside your web browser for complete privacy.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="font-size:13px; color:var(--text-muted);">Powered by <strong>Softveses</strong> | © 2026 Imego. All rights reserved.</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/tools-engine.js"></script>
+  <script>
+    let currentAngle = 0;
+    let flipH = 1;
+    let flipV = 1;
+
+    const angleSlider = document.getElementById('customAngleSlider');
+    const angleInput = document.getElementById('customAngleInput');
+
+    ImegoEngine.initDropzone('dropzone', 'fileInput', () => {
+      document.getElementById('previewContainer').style.display = 'block';
+      resetTransformation();
+    });
+
+    function updateAngle(newAngle) {
+      currentAngle = ((newAngle % 360) + 360) % 360;
+      angleSlider.value = currentAngle;
+      angleInput.value = Math.round(currentAngle);
+      renderImage();
+    }
+
+    angleSlider.addEventListener('input', (e) => updateAngle(parseFloat(e.target.value)));
+    angleInput.addEventListener('input', (e) => {
+      let val = parseFloat(e.target.value);
+      if (!isNaN(val)) updateAngle(val);
+    });
+
+    function resetTransformation() {
+      flipH = 1;
+      flipV = 1;
+      updateAngle(0);
+    }
+
+    function renderImage() {
+      const img = ImegoEngine.imageElement;
+      if (!img) return;
+      
+      const canvas = document.getElementById('rotateCanvas');
+      const ctx = canvas.getContext('2d');
+
+      const rad = (currentAngle * Math.PI) / 180;
+      const sin = Math.abs(Math.sin(rad));
+      const cos = Math.abs(Math.cos(rad));
+
+      // Calculate new bounding canvas dimensions so custom rotation never cuts corners
+      const newWidth = img.width * cos + img.height * sin;
+      const newHeight = img.width * sin + img.height * cos;
+
+      canvas.width = newWidth;
+      canvas.height = newHeight;
+
+      ctx.save();
+      ctx.translate(canvas.width / 2, canvas.height / 2);
+      ctx.rotate(rad);
+      ctx.scale(flipH, flipV);
+      ctx.drawImage(img, -img.width / 2, -img.height / 2);
+      ctx.restore();
+    }
+
+    document.getElementById('rotateLeftBtn').onclick = () => updateAngle(currentAngle - 90);
+    document.getElementById('rotateRightBtn').onclick = () => updateAngle(currentAngle + 90);
+    document.getElementById('rotate180Btn').onclick = () => updateAngle(currentAngle + 180);
+    document.getElementById('flipHBtn').onclick = () => { flipH *= -1; renderImage(); };
+    document.getElementById('flipVBtn').onclick = () => { flipV *= -1; renderImage(); };
+
+    document.getElementById('resetBtn').onclick = resetTransformation;
+
+    document.getElementById('downloadBtn').onclick = () => {
+      const canvas = document.getElementById('rotateCanvas');
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/png');
+      a.download = 'rotated-image.png';
+      a.click();
+    };
+  </script>
+</body>
+</html>

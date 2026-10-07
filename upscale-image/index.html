@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upscale Image Online Free - Imego</title>
+    <meta name="title" content="Upscale Image Online Free - Imego">
+    <meta name="description" content="Enlarge image resolution by 2x or 4x online with edge sharpening. High-quality client-side image upscaling with 100% private processing.">
+    <meta name="keywords" content="upscale image online, enlarge photo resolution, photo upscaler free, increase image clarity 2x 4x">
+    <meta name="author" content="Imego">
+    <link rel="canonical" href="https://ansaarboss.github.io/imego1/upscale-image/">
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <meta name="theme-color" content="#4f46e5">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ansaarboss.github.io/imego1/upscale-image/">
+    <meta property="og:title" content="Upscale Image Online Free - Imego">
+    <meta property="og:description" content="Enlarge image resolution by 2x or 4x online with edge sharpening. High-quality client-side image upscaling with 100% private processing.">
+    <meta property="og:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ansaarboss.github.io/imego1/upscale-image/">
+    <meta property="twitter:title" content="Upscale Image Online Free - Imego">
+    <meta property="twitter:description" content="Enlarge image resolution by 2x or 4x online with edge sharpening. High-quality client-side image upscaling with 100% private processing.">
+    <meta property="twitter:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Imego Image Upscaler",
+          "url": "https://ansaarboss.github.io/imego1/upscale-image/",
+          "description": "Upscale image resolution by 2x or 4x locally in your browser.",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ansaarboss.github.io/imego1/" },
+            { "@type": "ListItem", "position": 2, "name": "Upscale Image", "item": "https://ansaarboss.github.io/imego1/upscale-image/" }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+<body>
+
+  <!-- Top Navigation Bar with Theme Toggle -->
+  <header class="top-bar">
+    <a href="../index.html" class="logo">🖼️ Imego</a>
+    <nav class="nav-main">
+      <a href="../index.html" class="btn nav-btn">Home</a>
+      <button id="toolsToggleBtn" class="btn nav-btn active">Tools ▾</button>
+      <button id="legalToggleBtn" class="btn nav-btn">Legal Pages ▾</button>
+      <button id="themeToggleBtn" class="btn nav-btn">🌓</button>
+    </nav>
+  </header>
+
+  <!-- Tools Sub-bar Dropdown -->
+  <div class="tools-sub-bar" id="toolsSubBar">
+    <div class="tools-grid-sub">
+      <a href="../compress-image/index.html" class="btn">Compress</a>
+      <a href="../resize-image/index.html" class="btn">Resize</a>
+      <a href="../convert-image/index.html" class="btn">Convert</a>
+      <a href="../crop-image/index.html" class="btn">Crop</a>
+      <a href="../rotate-image/index.html" class="btn">Rotate</a>
+      <a href="../upscale-image/index.html" class="btn active">Upscale</a>
+      <a href="../favicon-generator/index.html" class="btn">Favicon</a>
+      <a href="../image-info/index.html" class="btn">Image Info</a>
+    </div>
+  </div>
+
+  <!-- Legal Sub-bar Dropdown -->
+  <div class="legal-sub-bar" id="legalSubBar">
+    <div class="tools-grid-sub">
+      <a href="../about/index.html" class="btn">About</a>
+      <a href="../privacy-policy/index.html" class="btn">Privacy Policy</a>
+      <a href="../terms-of-service/index.html" class="btn">Terms</a>
+      <a href="../disclaimer/index.html" class="btn">Disclaimer</a>
+      <a href="../contact/index.html" class="btn">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <div class="main-wrapper">
+    <main class="workspace">
+      <h1 style="font-size:22px; margin-bottom:16px; color:var(--primary-color);">Upscale & Enhance Image</h1>
+      
+      <!-- Upload Dropzone -->
+      <div class="dropzone" id="dropzone">
+        <p style="font-weight:700;">Click or drag image here to upscale resolution</p>
+        <input type="file" id="fileInput" style="display:none;" accept="image/*">
+      </div>
+
+      <!-- Preview Workspace -->
+      <div class="preview-container" id="previewContainer" style="display:none;">
+        <canvas id="upscaleCanvas" style="max-width:100%; max-height:350px; object-fit:contain; border-radius:12px; margin-bottom:16px; box-shadow:var(--clay-shadow-btn);"></canvas>
+        
+        <div class="controls-under-image">
+          <!-- Multiplier Options -->
+          <div style="display:flex; flex-direction:column; gap:8px; text-align:left; max-width:450px;">
+            <label style="font-weight:700; font-size:13px; color:var(--text-color);">Upscale Multiplier</label>
+            <div style="display:flex; gap:10px;">
+              <button class="btn active" id="scale2xBtn" style="box-shadow: var(--clay-shadow-btn); flex:1;">2x (Double Resolution)</button>
+              <button class="btn" id="scale4xBtn" style="box-shadow: var(--clay-shadow-btn); flex:1;">4x (Quadruple Resolution)</button>
+            </div>
+          </div>
+
+          <!-- Enhancement Options -->
+          <div style="display:flex; flex-direction:column; gap:8px; text-align:left; margin-top:14px; max-width:450px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <label style="font-weight:700; font-size:13px; color:var(--text-color);">Sharpen & Clarity Enhancement</label>
+              <span id="sharpenVal" style="font-weight:800; font-size:13px; color:var(--primary-color);">25%</span>
+            </div>
+            <input type="range" id="sharpenSlider" min="0" max="100" value="25" style="width:100%; accent-color:var(--primary-color); cursor:pointer;">
+          </div>
+
+          <!-- Resolution Info Readout -->
+          <div style="display:flex; gap:12px; margin-top:14px; padding:10px 14px; border-radius:10px; background:var(--card-bg); border:var(--clay-border); font-size:12px; font-weight:700; color:var(--text-color);">
+            <span>Original: <span id="origRes" style="color:var(--text-muted);">-</span></span>
+            <span>•</span>
+            <span>Upscaled: <span id="upscaledRes" style="color:var(--primary-color);">-</span></span>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-bar-under" style="margin-top:16px;">
+            <button class="btn primary" id="downloadBtn" style="box-shadow: var(--clay-shadow-btn);">Download Upscaled Image</button>
+            <button class="btn danger" id="resetBtn" style="box-shadow: var(--clay-shadow-btn);">🔄 Reset</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- How to Use Section -->
+    <section class="how-to-use-box">
+      <h2 style="font-size:18px; margin-bottom:8px;">How to Use the Upscale Tool</h2>
+      <div class="how-to-use-steps">
+        <div class="step-card">
+          <div class="step-number">Step 1</div>
+          <p style="font-size:13px; color:var(--text-muted);">Drop your image into the dropzone box above.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 2</div>
+          <p style="font-size:13px; color:var(--text-muted);">Select 2x or 4x magnification and adjust sharpening for clear, defined edges.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 3</div>
+          <p style="font-size:13px; color:var(--text-muted);">Click Download to save your high-resolution image.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- About Upscale Image Section -->
+<div class="tool-card" style="grid-column: 1 / -1; margin-top: 40px; padding: 32px;">
+  <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">About Imego Image Upscaler</h2>
+  <div style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+    <p style="margin-bottom: 16px;">
+      The Imego Image Upscaler enhances low-resolution graphics, digital artwork, and small photos, expanding their dimensions while improving visual sharpness. Standard image resizing spreads existing pixels over larger areas, producing blurry edges and blocky artifacts. Our upscale engine uses advanced bicubic interpolation and edge-sharpening filters to smooth canvas edges during pixel expansion.
+    </p>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">When to Upscale Your Photos</h3>
+    <p style="margin-bottom: 16px;">
+      Enlarging graphics without losing clarity is essential across several digital workflows:
+    </p>
+    <ul style="margin-left: 20px; margin-bottom: 16px;">
+      <li><strong>Print Production:</strong> Preparing web graphics or mobile snapshots for physical posters, merchandise, and banners that demand high DPI resolution.</li>
+      <li><strong>Legacy Photo Restoration:</strong> Increasing the canvas size of older digital photos or cropped image segments.</li>
+      <li><strong>E-Commerce Display:</strong> Magnifying small product thumbnails to allow customers to zoom in on texture details.</li>
+    </ul>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Recommended Upscaling Settings</h3>
+    <p>
+      For general photos, an upscale factor of 2x with 20%–30% sharpen enhancement yields crisp line edges without introducing harsh digital noise. When working with graphic logos or line art illustrations, fine-tune the sharpening slider higher to keep vector-style boundaries clean and distinct.
+    </p>
+  </div>
+</div>
+
+  <!-- Exclusive FAQ Accordion -->
+  <section class="faq-section">
+    <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question"><span>How does this upscaling tool work?</span><span>+</span></button>
+        <div class="faq-answer">It uses high-fidelity bicubic canvas resampling coupled with custom unsharp-masking algorithms to double or quadruple pixel counts while maintaining crisp lines.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Are my pictures uploaded to an online server?</span><span>+</span></button>
+        <div class="faq-answer">No! All upscaling computations run locally within your web browser for complete privacy and instant processing speed.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="font-size:13px; color:var(--text-muted);">Powered by <strong>Softveses</strong> | © 2026 Imego. All rights reserved.</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/tools-engine.js"></script>
+  <script>
+    let scaleFactor = 2;
+    let sharpenAmount = 0.25;
+
+    const scale2xBtn = document.getElementById('scale2xBtn');
+    const scale4xBtn = document.getElementById('scale4xBtn');
+    const sharpenSlider = document.getElementById('sharpenSlider');
+    const sharpenVal = document.getElementById('sharpenVal');
+
+    ImegoEngine.initDropzone('dropzone', 'fileInput', () => {
+      document.getElementById('previewContainer').style.display = 'block';
+      renderUpscaled();
+    });
+
+    scale2xBtn.onclick = () => {
+      scaleFactor = 2;
+      scale2xBtn.classList.add('active');
+      scale4xBtn.classList.remove('active');
+      renderUpscaled();
+    };
+
+    scale4xBtn.onclick = () => {
+      scaleFactor = 4;
+      scale4xBtn.classList.add('active');
+      scale2xBtn.classList.remove('active');
+      renderUpscaled();
+    };
+
+    sharpenSlider.oninput = (e) => {
+      sharpenAmount = parseFloat(e.target.value) / 100;
+      sharpenVal.textContent = `${e.target.value}%`;
+      renderUpscaled();
+    };
+
+    function renderUpscaled() {
+      const img = ImegoEngine.imageElement;
+      if (!img) return;
+
+      const canvas = document.getElementById('upscaleCanvas');
+      const ctx = canvas.getContext('2d');
+
+      const targetWidth = img.width * scaleFactor;
+      const targetHeight = img.height * scaleFactor;
+
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+      // Apply sharpening filter pass if sharpenAmount > 0
+      if (sharpenAmount > 0) {
+        applySharpenFilter(ctx, targetWidth, targetHeight, sharpenAmount);
+      }
+
+      document.getElementById('origRes').textContent = `${img.width} x ${img.height} px`;
+      document.getElementById('upscaledRes').textContent = `${targetWidth} x ${targetHeight} px`;
+    }
+
+    // High-performance Canvas Unsharp Mask / Sharpening Algorithm
+    function applySharpenFilter(ctx, width, height, mix) {
+      const imageData = ctx.getImageData(0, 0, width, height);
+      const data = imageData.data;
+      const copy = new Uint8ClampedArray(data);
+
+      const kernel = [
+        0, -1,  0,
+       -1,  5, -1,
+        0, -1,  0
+      ];
+
+      const w = width;
+      const h = height;
+
+      for (let y = 1; y < h - 1; y++) {
+        for (let x = 1; x < w - 1; x++) {
+          const sy = y;
+          const sx = x;
+          const dstOff = (y * w + x) * 4;
+
+          for (let c = 0; c < 3; c++) {
+            let res = 0;
+            res += copy[((sy - 1) * w + (sx - 1)) * 4 + c] * kernel[0];
+            res += copy[((sy - 1) * w + sx) * 4 + c] * kernel[1];
+            res += copy[((sy - 1) * w + (sx + 1)) * 4 + c] * kernel[2];
+            res += copy[(sy * w + (sx - 1)) * 4 + c] * kernel[3];
+            res += copy[(sy * w + sx) * 4 + c] * kernel[4];
+            res += copy[(sy * w + (sx + 1)) * 4 + c] * kernel[5];
+            res += copy[((sy + 1) * w + (sx - 1)) * 4 + c] * kernel[6];
+            res += copy[((sy + 1) * w + sx) * 4 + c] * kernel[7];
+            res += copy[((sy + 1) * w + (sx + 1)) * 4 + c] * kernel[8];
+
+            data[dstOff + c] = copy[dstOff + c] * (1 - mix) + res * mix;
+          }
+        }
+      }
+      ctx.putImageData(imageData, 0, 0);
+    }
+
+    document.getElementById('downloadBtn').onclick = () => {
+      const canvas = document.getElementById('upscaleCanvas');
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/png');
+      a.download = `upscaled-${scaleFactor}x-image.png`;
+      a.click();
+    };
+
+    document.getElementById('resetBtn').onclick = () => {
+      document.getElementById('previewContainer').style.display = 'none';
+      document.getElementById('fileInput').value = '';
+    };
+  </script>
+</body>
+</html>

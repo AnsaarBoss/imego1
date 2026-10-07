@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Imego</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-bar">
+    <a href="../index.html" class="logo">🖼️ Imego</a>
+    <nav class="nav-main">
+      <a href="../index.html" class="btn nav-btn">Home</a>
+      <button id="toolsToggleBtn" class="btn nav-btn">Tools ▾</button>
+      <button id="legalToggleBtn" class="btn nav-btn active">Legal Pages ▾</button>
+      <button id="themeToggleBtn" class="btn nav-btn">🌓</button>
+    </nav>
+  </header>
+
+  <!-- Tools Sub-bar Dropdown -->
+  <div class="tools-sub-bar" id="toolsSubBar">
+    <div class="tools-grid-sub">
+      <a href="../compress-image/index.html" class="btn">Compress</a>
+      <a href="../resize-image/index.html" class="btn">Resize</a>
+      <a href="../convert-image/index.html" class="btn">Convert</a>
+      <a href="../crop-image/index.html" class="btn">Crop</a>
+      <a href="../rotate-image/index.html" class="btn">Rotate</a>
+      <a href="../favicon-generator/index.html" class="btn">Favicon</a>
+      <a href="../image-info/index.html" class="btn">Image Info</a>
+      <a href="../upscale-image/index.html" class="btn">Upscale</a>
+    </div>
+  </div>
+
+  <!-- Legal Sub-bar Dropdown -->
+  <div class="legal-sub-bar" id="legalSubBar">
+    <div class="tools-grid-sub">
+      <a href="../about/index.html" class="btn">About</a>
+      <a href="../privacy-policy/index.html" class="btn">Privacy Policy</a>
+      <a href="../terms-of-service/index.html" class="btn">Terms</a>
+      <a href="../disclaimer/index.html" class="btn">Disclaimer</a>
+      <a href="../contact/index.html" class="btn active">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Content Workspace -->
+  <div class="main-wrapper">
+    <main class="workspace" style="line-height:1.7;">
+      <h1 style="font-size:24px; margin-bottom:16px; color:var(--primary-color);">Contact Us</h1>
+      <p style="color:var(--text-muted); margin-bottom:20px;">Have questions, feedback, or need help with Imego? Drop us a line below!</p>
+
+      <form style="display: flex; flex-direction: column; gap: 16px; max-width: 500px; margin: 0 auto; text-align: left;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label style="font-weight: 700; font-size: 13px; color: var(--text-color);">Name</label>
+          <input type="text" placeholder="Your Name" style="width: 100%; height: 46px; padding: 0 16px; border-radius: 12px; border: var(--clay-border); background: var(--card-bg); color: var(--text-color); box-shadow: var(--clay-shadow-btn-active); outline: none; font-size: 14px;">
+        </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label style="font-weight: 700; font-size: 13px; color: var(--text-color);">Email</label>
+          <input type="email" placeholder="your@email.com" style="width: 100%; height: 46px; padding: 0 16px; border-radius: 12px; border: var(--clay-border); background: var(--card-bg); color: var(--text-color); box-shadow: var(--clay-shadow-btn-active); outline: none; font-size: 14px;">
+        </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label style="font-weight: 700; font-size: 13px; color: var(--text-color);">Message</label>
+          <textarea rows="4" placeholder="How can we help?" style="width: 100%; padding: 12px 16px; border-radius: 12px; border: var(--clay-border); background: var(--card-bg); color: var(--text-color); box-shadow: var(--clay-shadow-btn-active); outline: none; font-size: 14px; resize: vertical;"></textarea>
+        </div>
+      
+        <button type="submit" class="btn primary" style="align-self: flex-start; box-shadow: var(--clay-shadow-btn);">Send Message</button>
+      </form>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="font-size:13px; color:var(--text-muted);">Powered by <strong>Softveses</strong> | © 2026 Imego. All rights reserved.</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

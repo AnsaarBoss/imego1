@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Info & EXIF Viewer Free - Imego</title>
+    <meta name="title" content="Image Info & EXIF Viewer Free - Imego">
+    <meta name="description" content="Inspect image dimensions, aspect ratio, camera EXIF metadata, and color profile data privately online without uploading files anywhere.">
+    <meta name="keywords" content="exif viewer online, image metadata viewer, inspect photo info, camera settings viewer, photo resolution info">
+    <meta name="author" content="Imego">
+    <link rel="canonical" href="https://ansaarboss.github.io/imego1/image-info/">
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <meta name="theme-color" content="#4f46e5">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ansaarboss.github.io/imego1/image-info/">
+    <meta property="og:title" content="Image Info & EXIF Viewer Free - Imego">
+    <meta property="og:description" content="Inspect image dimensions, aspect ratio, camera EXIF metadata, and color profile data privately online without uploading files anywhere.">
+    <meta property="og:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ansaarboss.github.io/imego1/image-info/">
+    <meta property="twitter:title" content="Image Info & EXIF Viewer Free - Imego">
+    <meta property="twitter:description" content="Inspect image dimensions, aspect ratio, camera EXIF metadata, and color profile data privately online without uploading files anywhere.">
+    <meta property="twitter:image" content="https://ansaarboss.github.io/imego1/assets/images/og-preview.png">
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Imego Image Info & EXIF Viewer",
+          "url": "https://ansaarboss.github.io/imego1/image-info/",
+          "description": "Inspect resolution, aspect ratio, and camera EXIF metadata locally in your browser.",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Any",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ansaarboss.github.io/imego1/" },
+            { "@type": "ListItem", "position": 2, "name": "Image Info", "item": "https://ansaarboss.github.io/imego1/image-info/" }
+          ]
+        }
+      ]
+    }
+    </script>
+  <!-- exifr library for parsing detailed EXIF and metadata -->
+  <script src="https://cdn.jsdelivr.net/npm/exifr/dist/full.umd.js"></script>
+</head>
+<body>
+
+  <!-- Top Navigation Bar with Theme Toggle -->
+  <header class="top-bar">
+    <a href="../index.html" class="logo">🖼️ Imego</a>
+    <nav class="nav-main">
+      <a href="../index.html" class="btn nav-btn">Home</a>
+      <button id="toolsToggleBtn" class="btn nav-btn active">Tools ▾</button>
+      <button id="legalToggleBtn" class="btn nav-btn">Legal Pages ▾</button>
+      <button id="themeToggleBtn" class="btn nav-btn">🌓</button>
+    </nav>
+  </header>
+
+  <!-- Tools Sub-bar Dropdown -->
+  <div class="tools-sub-bar" id="toolsSubBar">
+    <div class="tools-grid-sub">
+      <a href="../compress-image/index.html" class="btn">Compress</a>
+      <a href="../resize-image/index.html" class="btn">Resize</a>
+      <a href="../convert-image/index.html" class="btn">Convert</a>
+      <a href="../crop-image/index.html" class="btn">Crop</a>
+      <a href="../rotate-image/index.html" class="btn">Rotate</a>
+      <a href="../favicon-generator/index.html" class="btn">Favicon</a>
+      <a href="../image-info/index.html" class="btn active">Image Info</a>
+      <a href="../upscale-image/index.html" class="btn">Upscale</a>
+    </div>
+  </div>
+
+  <!-- Legal Sub-bar Dropdown -->
+  <div class="legal-sub-bar" id="legalSubBar">
+    <div class="tools-grid-sub">
+      <a href="../about/index.html" class="btn">About</a>
+      <a href="../privacy-policy/index.html" class="btn">Privacy Policy</a>
+      <a href="../terms-of-service/index.html" class="btn">Terms</a>
+      <a href="../disclaimer/index.html" class="btn">Disclaimer</a>
+      <a href="../contact/index.html" class="btn">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main Workspace -->
+  <div class="main-wrapper">
+    <main class="workspace">
+      <h1 style="font-size:22px; margin-bottom:16px; color:var(--primary-color);">Image Info & EXIF Viewer</h1>
+      
+      <!-- Upload Dropzone -->
+      <div class="dropzone" id="dropzone">
+        <p style="font-weight:700;">Click or drag image here to extract full info</p>
+        <input type="file" id="fileInput" style="display:none;" accept="image/*">
+      </div>
+
+      <!-- Information Preview Workspace -->
+      <div class="preview-container" id="previewContainer" style="display:none;">
+        <canvas id="infoCanvas" style="max-height:260px; object-fit:contain; border-radius:12px; margin-bottom:16px; box-shadow:var(--clay-shadow-btn);"></canvas>
+        
+        <!-- Action Header Bar -->
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+          <h3 style="font-size:16px; margin:0; color:var(--text-color);">Extracted Metadata Details</h3>
+          <div style="display:flex; gap:10px;">
+            <button class="btn primary" id="copyDetailsBtn" style="box-shadow: var(--clay-shadow-btn); font-size:12px;">📋 Copy Info</button>
+            <button class="btn primary" id="exportJsonBtn" style="box-shadow: var(--clay-shadow-btn); font-size:12px;">💾 Export JSON</button>
+            <button class="btn danger" id="resetBtn" style="box-shadow: var(--clay-shadow-btn); font-size:12px;">🔄 Reset</button>
+          </div>
+        </div>
+
+        <!-- Detailed Info Cards Grid -->
+        <div id="infoGrid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:14px; text-align:left;">
+          <!-- JS generates key-value details cards dynamically -->
+        </div>
+      </div>
+    </main>
+
+    <!-- How to Use Section -->
+    <section class="how-to-use-box">
+      <h2 style="font-size:18px; margin-bottom:8px;">How to Use the Image Info Tool</h2>
+      <div class="how-to-use-steps">
+        <div class="step-card">
+          <div class="step-number">Step 1</div>
+          <p style="font-size:13px; color:var(--text-muted);">Drop any image file (JPG, PNG, WebP, etc.) into the upload box above.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 2</div>
+          <p style="font-size:13px; color:var(--text-muted);">View instant analysis detailing file attributes, dimensions, aspect ratio, and embedded EXIF camera data.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">Step 3</div>
+          <p style="font-size:13px; color:var(--text-muted);">Click "Copy Info" to copy to clipboard or "Export JSON" to download the structured report.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- About Image Info Section -->
+<div class="tool-card" style="grid-column: 1 / -1; margin-top: 40px; padding: 32px;">
+  <h2 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">About Imego Image Info & EXIF Viewer</h2>
+  <div style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+    <p style="margin-bottom: 16px;">
+      The Imego Image Info tool inspects detailed structural attributes and hidden EXIF (Exchangeable Image File Format) metadata embedded inside your image files. When digital cameras and smartphones capture photos, they store valuable technical parameters directly inside the file header, providing photographers and web developers with comprehensive file diagnostics.
+    </p>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Key Technical Data Analyzed</h3>
+    <p style="margin-bottom: 16px;">
+      Instantly retrieve structural parameters and camera metadata from any upload:
+    </p>
+    <ul style="margin-left: 20px; margin-bottom: 16px;">
+      <li><strong>Canvas Dimensions & Aspect Ratio:</strong> Exact width and height in pixels along with aspect ratios (e.g., 16:9, 4:3, 1:1).</li>
+      <li><strong>File Storage Metrics:</strong> Raw file size in Kilobytes (KB) or Megabytes (MB), color depth, and MIME format type.</li>
+      <li><strong>Camera Shooting Settings:</strong> ISO speed ratings, shutter speed, lens aperture (f-number), focal length, and camera make/model.</li>
+      <li><strong>Location & Timestamp:</strong> Capture date, time, and embedded GPS coordinates where available.</li>
+    </ul>
+
+    <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin: 20px 0 10px;">Privacy & Inspection Benefits</h3>
+    <p>
+      Inspecting EXIF data helps photographers study camera exposure settings and helps web designers verify pixel dimensions before code deployment. Checking EXIF metadata locally also lets you review sensitive embedded location data prior to sharing photos publicly across forums or social media networks.
+    </p>
+  </div>
+</div>
+
+  <!-- Exclusive FAQ Accordion -->
+  <section class="faq-section">
+    <h2 style="margin-bottom:16px;">Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question"><span>What EXIF metadata can this tool read?</span><span>+</span></button>
+        <div class="faq-answer">It extracts camera make and model, ISO, shutter speed, aperture, focal length, color profile, capture date, resolution, and GPS coordinates if present.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Why don't all images display camera EXIF details?</span><span>+</span></button>
+        <div class="faq-answer">Some file types (like basic PNGs) or compressed web images automatically strip camera EXIF data during saving or sharing on social media.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Are my uploaded image files sent to an online server?</span><span>+</span></button>
+        <div class="faq-answer">No, all metadata reading and file analysis happen strictly in your browser session for complete privacy.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div style="font-size:13px; color:var(--text-muted);">Powered by <strong>Softveses</strong> | © 2026 Imego. All rights reserved.</div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/tools-engine.js"></script>
+  <script>
+    let currentMetadata = {};
+
+    ImegoEngine.initDropzone('dropzone', 'fileInput', async () => {
+      document.getElementById('previewContainer').style.display = 'block';
+      renderImageAndExtractInfo();
+    });
+
+    async function renderImageAndExtractInfo() {
+      const file = ImegoEngine.currentFile;
+      const img = ImegoEngine.imageElement;
+      if (!file || !img) return;
+
+      // Draw preview canvas
+      const canvas = document.getElementById('infoCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+
+      // Compute basic details
+      const megapixels = ((img.width * img.height) / 1000000).toFixed(2);
+      const gcd = (a, b) => b ? gcd(b, a % b) : a;
+      const divisor = gcd(img.width, img.height);
+      const aspectRatio = `${img.width / divisor}:${img.height / divisor}`;
+      const formattedSize = formatFileSize(file.size);
+
+      currentMetadata = {
+        "File Name": file.name,
+        "File Format": file.type || 'Unknown',
+        "File Size": formattedSize,
+        "Dimensions": `${img.width} x ${img.height} px`,
+        "Aspect Ratio": aspectRatio,
+        "Megapixels": `${megapixels} MP`,
+        "Last Modified": new Date(file.lastModified).toLocaleString()
+      };
+
+      // Extract EXIF data if available
+      try {
+        if (typeof exifr !== 'undefined') {
+          const exifData = await exifr.parse(file);
+          if (exifData) {
+            if (exifData.Make) currentMetadata["Camera Make"] = exifData.Make;
+            if (exifData.Model) currentMetadata["Camera Model"] = exifData.Model;
+            if (exifData.ISO) currentMetadata["ISO Speed"] = exifData.ISO;
+            if (exifData.FNumber) currentMetadata["Aperture"] = `f/${exifData.FNumber}`;
+            if (exifData.ExposureTime) currentMetadata["Exposure Time"] = `${exifData.ExposureTime}s`;
+            if (exifData.FocalLength) currentMetadata["Focal Length"] = `${exifData.FocalLength}mm`;
+            if (exifData.DateTimeOriginal) currentMetadata["Date Taken"] = new Date(exifData.DateTimeOriginal).toLocaleString();
+            if (exifData.latitude && exifData.longitude) {
+              currentMetadata["GPS Coordinates"] = `${exifData.latitude.toFixed(4)}, ${exifData.longitude.toFixed(4)}`;
+            }
+          }
+        }
+      } catch (e) {
+        console.warn('EXIF parsing skipped:', e);
+      }
+
+      renderInfoCards(currentMetadata);
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function renderInfoCards(data) {
+      const grid = document.getElementById('infoGrid');
+      grid.innerHTML = '';
+
+      Object.entries(data).forEach(([key, value]) => {
+        const card = document.createElement('div');
+        card.style.cssText = 'padding:12px 14px; border-radius:12px; background:var(--card-bg); border:var(--clay-border); box-shadow:var(--clay-shadow-btn-active); display:flex; flex-direction:column; gap:4px;';
+
+        const label = document.createElement('span');
+        label.style.cssText = 'font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; tracking:0.5px;';
+        label.textContent = key;
+
+        const val = document.createElement('span');
+        val.style.cssText = 'font-size:13px; font-weight:700; color:var(--text-color); word-break:break-word;';
+        val.textContent = value;
+
+        card.appendChild(label);
+        card.appendChild(val);
+        grid.appendChild(card);
+      });
+    }
+
+    // Copy to Clipboard
+    document.getElementById('copyDetailsBtn').onclick = () => {
+      const text = Object.entries(currentMetadata).map(([k, v]) => `${k}: ${v}`).join('\n');
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Image details copied to clipboard!');
+      });
+    };
+
+    // Export as JSON file
+    document.getElementById('exportJsonBtn').onclick = () => {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(currentMetadata, null, 2));
+      const a = document.createElement('a');
+      a.href = dataStr;
+      a.download = 'image-metadata.json';
+      a.click();
+    };
+
+    document.getElementById('resetBtn').onclick = () => {
+      document.getElementById('infoGrid').innerHTML = '';
+      document.getElementById('previewContainer').style.display = 'none';
+      document.getElementById('fileInput').value = '';
+    };
+  </script>
+</body>
+</html>
